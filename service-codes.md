@@ -1,6 +1,6 @@
 # Service codes
 
-It is mandatory to include a service code in a Direct Payment transaction. The service code identifies the type of goods or services being paid for. The various service codes have different payouts. Please [contact us](Contact.md) for more information regarding which service code to use and the different payout conditions.
+It is mandatory to include a service code in a Direct Payment transaction. The service code identifies the type of goods or services being paid for. The various service codes have different payouts. Please [contact us](contact.md) for more information regarding which service code to use and the different payout conditions.
 
 The following service codes are valid:
 

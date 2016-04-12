@@ -4,7 +4,7 @@
 
 Use the Pay method to directly charge a mobile subscription with a provided amount. It is also mandatory to specify a [service code](service-codes.md) for a transaction that describes the category and in turn will effect the payout. The mobile subscription is charged immediately and you will get a synchronous response from the API. It is not necessary for the mobile phone to be turned on in order for the transaction to go through.
 
-Note that some of our services requires the mobile phone subscription to be verified before use - see [here](methods.md#Send-verification-code) for details.
+Note that some of our services requires the mobile phone subscription to be verified before use - see [here](methods.md#send-verification-code) for details.
 
 Also please note that currently the following norwegian mobile network operators are supported through the API: Telenor, Telio (former Netcom) and Network Norway. Once the other norwegian mobile network operators start supporting Direct Payment, they will be automatically available for you through this API.
 
