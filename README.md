@@ -2,7 +2,7 @@
 ## Official documentation
 
 This API provides functionality to charge end-users synchronously, without sending them an associated SMS. It is exposed through a SOAP web service and a REST interface and this document describes the technical details needed to interact with the API. The API also supports an optional functionality to verify the end-user's mobile phone through the use of a verification pin code sent by SMS.
-Please note that currently the following norwegian mobile network operators are supported through the API: Telenor, Telio (former Netcom) and Network Norway.
+Please note that currently the following norwegian mobile network operators are supported through the API: Telenor, Telia (former Netcom) and Network Norway.
 
 
 ### Table of Contents
