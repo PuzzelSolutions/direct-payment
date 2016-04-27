@@ -113,7 +113,7 @@ Use this method to get the payment status of a specific transaction. It can be u
 
 ## Send verification code
 
-Some of our services requires that the mobile phone number to be charged is verified. This is to ensure that end-user do not enter a random mobile phone number to be charged. To verify a mobile phone number, use the "Send verification code" method which will generate a pin code and send it by sms to the specified mobile phone number. Your client must then provide the end user with an interface where the pin code can be entered and verified.
+Some of our services requires that the mobile phone number to be charged is verified. This is to ensure that end-user do not enter a random mobile phone number to be charged. To verify a mobile phone number, use the "Send verification code" method which will generate a pin code and send it by sms to the specified mobile phone number. Your client must then provide the end user with an interface where the pin code can be entered and verified. Even though it is optional to set the expiration time when using this functionality, keep in mind that people change phone numbers every now and then, so we advise to set the expiration time to 1 year ahead in time.
 
 
 ### Request types
@@ -121,6 +121,7 @@ Some of our services requires that the mobile phone number to be charged is veri
 <tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
 <tr><td>ServiceCredentials</td><td>ServiceCredentials</td><td>See <a href="https://github.com/Intelecom/direct-payment/blob/master/methods.md#servicecredentials">here</a> for details</td><td>Yes</td></tr>
 <tr><td>Msisdn</td><td>String</td><td>The mobile subscription number to be verified.</td><td>Yes</td></tr>
+<tr><td>ExpiryTime</td><td>DateTime</td><td>The expiration time for a verification. If this field is not used, the verification lasts forever.</td><td>No</td></tr>
 <tr><td>Template</td><td>String</td><td>The template that should be used in the SMS, use {0} as the placeholder for the code. A default template will be used if this parameter isn’t specified.<br><br>
 Example: Your verification code is {0}. Have a nice day!</td><td>No</td></tr>
 </table>
