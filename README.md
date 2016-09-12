@@ -23,7 +23,7 @@ To use the Direct Payment API you will need the URLs to our staging and/ or prod
 - Serviceid
 
 
-If you do not already have an account and want to try out or order access, please do [contact us](/sections/Contact.md) for more information. We provide demo accounts for both live and test environment - no strings attached. 
+If you do not already have an account and want to try out or order access, please do [contact us](sections/Contact.md) for more information. We provide demo accounts for both live and test environment - no strings attached. 
 
 For live accounts, pricing is based on establishment, monthly subscription and traffic (per billing) fees. 
 
