@@ -2,7 +2,7 @@
 
 ### How to connect
 
-The web service interface is defined by the WSDL and may be retrieved from [https://directpayment.intele.com/soapV1.svc?singleWsdl](https://directpayment.intele.com/soapV1.svc?singleWsdl)
+The web service interface is defined by the WSDL and may be retrieved from [https://directpayment.intele.com/soapV1.svc?wsdl](https://directpayment.intele.com/soapV1.svc?wsdl)
 
 
 ### Error handling
