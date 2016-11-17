@@ -4,10 +4,10 @@
 
 ### How to connect
 
-The REST interface supports both JSON and XML over HTTP with the following base URI: [https://directpayment.intele.com/restV1.svc](https://directpayment.intele.com/restV1.svc)
+The REST interface supports both JSON and XML over HTTP with the following base URI: `https://directpayment.intele.com/restV1.svc`.
 
 
-XML schema definitions and example requests/responses may be found at: [https://directpayment.intele.com/restV1.svc/help](https://directpayment.intele.com/restV1.svc/help)
+Swagger UI, which displays example requests/responses, is available [here](https://directpayment.intele.com/api-docs/index.html?url=/api-docs/swagger.json).
 
 
 ### Authentication
@@ -18,7 +18,7 @@ Clients must authenticate themselves using basic authentication. The username an
 
 Example with username “foo” and password “bar”:
 
-*Authorization: Basic Zm9vOmJhcg==*
+`Authorization: Basic Zm9vOmJhcg==`
 
 
 ### Error handling
@@ -28,20 +28,20 @@ The REST interface will respond with varying HTTP status codes, depending on the
 
 ### Error example
 
-```HTTP/1.1 400 Bad Request```
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json; charset=utf-8
+Content-Length: 38
 
-```Content-Type: application/json; charset=utf-8```
-
-```Content-Length: 38```
-
-```{"Code":2,"Description":"Invalid age"}```
+{"Code":2,"Description":"Invalid age"}
+```
 
 
 ### Content types
 
 The REST endpoint supports both JSON and XML. To specify the content type of the request, you must specify the “*Content-Type*” header and to specify the content type of the response, you must specify the “*Accept*” header. 
 
-Valid values are “*application/json*” and “*application/xml*”.
+Valid values are `application/json` and `application/xml`.
 
 
 ### Encoding
