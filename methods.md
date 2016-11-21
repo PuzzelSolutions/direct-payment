@@ -42,7 +42,7 @@ This type is only relevant when using the SOAP endpoint.
 <tr><td>Age</td><td>Integer</td><td>The minimum age of the subscriber required for the purchase. If set, the valid values are 16 and 18.</td><td>No</td></tr>
 <tr><td>Differentiator</td><td>String</td><td>Arbitrary string set by the client to enable grouping of messages in certain statistics reports.</td><td>No</td></tr>
 <tr><td>InvoiceNode</td><td>String</td><td>Arbitrary string set by the client to enable grouping of messages on the service invoice.</td><td>No</td></tr>
-<tr><td>BusinessModel</td><td>String</td><td>Business model</td><td>No</td></tr>
+<tr><td>BusinessModel</td><td>String</td><td>Business model, a list containing the available business models is available <a href="https://github.com/Intelecom/direct-payment/blob/master/business-models.md">here</a>.</td><td>No</td></tr>
 </table>
 
 
