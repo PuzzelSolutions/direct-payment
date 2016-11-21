@@ -36,13 +36,13 @@ This type is only relevant when using the SOAP endpoint.
 <tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
 <tr><td>Msisdn</td><td>String</td><td>The MSISDN that should be charged. The format should follow the ITU-T E.164 standard with a + prefix.</td><td>Yes</td></tr>
 <tr><td>Price</td><td>Integer</td><td>The amount that should be debited, in lowest monetary unit. Example: 100 (1,- NOK).</td><td>Yes</td></tr>
-<tr><td>ServiceCode</td><td>String</td><td>Service code identifying the type of transaction. See <a href="https://github.com/Intelecom/direct-payment/blob/master/service-codes.md">here</a> for a list of available service codes</td><td>Yes</td></tr>
+<tr><td>ServiceCode</td><td>String</td><td>Service code identifying the type of transaction. See <a href="service-codes.md">here</a> for a list of available service codes</td><td>Yes</td></tr>
 <tr><td>ClientReference</td><td>String</td><td>Client reference for the transaction, must be unique.</td><td>Yes</td></tr>
 <tr><td>EndUserInvoiceText</td><td>String</td><td>Text that will be displayed on the end-user invoice.</td><td>No</td></tr>
 <tr><td>Age</td><td>Integer</td><td>The minimum age of the subscriber required for the purchase. If set, the valid values are 16 and 18.</td><td>No</td></tr>
 <tr><td>Differentiator</td><td>String</td><td>Arbitrary string set by the client to enable grouping of messages in certain statistics reports.</td><td>No</td></tr>
 <tr><td>InvoiceNode</td><td>String</td><td>Arbitrary string set by the client to enable grouping of messages on the service invoice.</td><td>No</td></tr>
-<tr><td>BusinessModel</td><td>String</td><td>Business model, a list containing the available business models is available <a href="https://github.com/Intelecom/direct-payment/blob/master/business-models.md">here</a>.</td><td>No</td></tr>
+<tr><td>BusinessModel</td><td>String</td><td>Business model, a list containing the available business models is available <a href="business-models.md">here</a>.</td><td>No</td></tr>
 </table>
 
 
@@ -64,7 +64,7 @@ Use the Reverse payment method to cancel a payment already made. The transaction
 ### Request types
 <table>
 <tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
-<tr><td>ServiceCredentials</td><td>ServiceCredentials</td><td>See <a href="https://github.com/Intelecom/direct-payment/blob/master/methods.md#servicecredentials">here</a> for details</td><td>Yes</td></tr>
+<tr><td>ServiceCredentials</td><td>ServiceCredentials</td><td>See <a href="methods.md#servicecredentials">here</a> for details</td><td>Yes</td></tr>
 <tr><td>ReversePaymentDetails</td><td>ReversePaymentDetails</td><td>Contains details about the transaction.</td><td>Yes</td></tr>
 </table>
 
@@ -94,7 +94,7 @@ Use this method to get the payment status of a specific transaction. It can be u
 #### PaymentStatusRequest
 <table>
 <tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
-<tr><td>ServiceCredentials</td><td>ServiceCredentials</td><td>See <a href="https://github.com/Intelecom/direct-payment/blob/master/methods.md#servicecredentials">here</a> for details</td><td>Yes</td></tr>
+<tr><td>ServiceCredentials</td><td>ServiceCredentials</td><td>See <a href="methods.md#servicecredentials">here</a> for details</td><td>Yes</td></tr>
 <tr><td>ClientReference</td><td>String</td><td>The unique client reference which was specified in the pay request.</td><td>Yes</td></tr>
 </table>
 
@@ -120,7 +120,7 @@ Some of our services requires that the mobile phone number to be charged is veri
 ### Request types
 <table>
 <tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
-<tr><td>ServiceCredentials</td><td>ServiceCredentials</td><td>See <a href="https://github.com/Intelecom/direct-payment/blob/master/methods.md#servicecredentials">here</a> for details</td><td>Yes</td></tr>
+<tr><td>ServiceCredentials</td><td>ServiceCredentials</td><td>See <a href="methods.md#servicecredentials">here</a> for details</td><td>Yes</td></tr>
 <tr><td>Msisdn</td><td>String</td><td>The mobile subscription number to be verified.</td><td>Yes</td></tr>
 <tr><td>ExpiryTime</td><td>DateTime</td><td>The expiration time for a verification. If this field is not used, the verification lasts forever.</td><td>No</td></tr>
 <tr><td>Template</td><td>String</td><td>The template that should be used in the SMS, use {0} as the placeholder for the code. A default template will be used if this parameter isn’t specified.<br><br>
@@ -138,7 +138,7 @@ Use this method to verify that the pin code entered by the end-user matches the 
 ### Request types
 <table>
 <tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
-<tr><td>ServiceCredentials</td><td>ServiceCredentials</td><td>See <a href="https://github.com/Intelecom/direct-payment/blob/master/methods.md#servicecredentials">here</a> for details</td><td>Yes</td></tr>
+<tr><td>ServiceCredentials</td><td>ServiceCredentials</td><td>See <a href="methods.md#servicecredentials">here</a> for details</td><td>Yes</td></tr>
 <tr><td>Msisdn</td><td>String</td><td>The mobile subscription number associated with the verification code.</td><td>Yes</td></tr>
 <tr><td>VerificationCode</td><td>string</td><td>The code to be verified.</td><td>Yes</td></tr>
 </table>
@@ -151,6 +151,6 @@ N/A.
 
 <table>
 <tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
-<tr><td>Code</td><td>Integer</td><td>Error code, please refer to the <a href="https://github.com/Intelecom/direct-payment/blob/master/error-codes.md">list of error codes</a> for more details.</td><td>Yes</td></tr>
+<tr><td>Code</td><td>Integer</td><td>Error code, please refer to the <a href="error-codes.md">list of error codes</a> for more details.</td><td>Yes</td></tr>
 <tr><td>Description</td><td>String</td><td>Contains details about the error that occurred.</td><td>Yes</td></tr>
 </table>
