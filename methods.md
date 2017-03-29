@@ -109,6 +109,7 @@ Use this method to get the payment status of a specific transaction. It can be u
 1 = Paid <br>
 2 = Reversed
 </td><td>Yes</td></tr>
+<tr><td>TransactionId</td><td>Integer</td><td>The unique transaction ID which was received in the payment response.</td><td>No</td></tr>
 </table>
 
 
