@@ -28,13 +28,19 @@ If you do not already have an account and want to try out or order access, pleas
 For live accounts, pricing is based on establishment, monthly subscription and traffic (per billing) fees. 
 
 
-### About Intelecom 
 
-Intelecom is a leading provider of cloud-based and on-premise communication solutions. We have over 30 years of experience and with our experience and competence we aim to give our customers stable, flexible, user-friendly and scalable solutions. 
+### About Puzzel 
 
-We provide innovative solutions for SMS, mobile applications, system integration, call-centers, wireless networks, payment, unified communications and more. Our customer base counts over 2000 customers across many verticals from offshore to transport, primarily in Scandinavia and UK. What most of our customers have in common is that they have a need to be able to communicate better with their users and employees. Our contribution is often that we offer means to integrate existing solutions with new ones or new interfaces. This results in continuous utilization of current investments and at the same time providing additional value for the customer. Our mission is to make sure that good communication is rewarding. 
+Puzzel (formerly Intelecom’s contact centre entity) builds on 20 years’ heritage of crafting inventive and dependable solutions for customer interactions. It was one of the first pioneers to develop a cloud-based contact centre and has now extended this to encompass a complete new customer interaction platform with unique integration capabilities and payment solutions. Puzzel can be adapted to accommodate from one to several thousand users using any device, in any location and integrates with multiple applications seamlessly, allowing customers to meet the needs of today’s omni-channel and mobile environments.
 
+Puzzel is one of the few contact centre solutions that is completely multi-channel and brings together all the pieces to respond to phone, email, Web Chat, Social Media, SMS and payment enquiries all within one application. Click here to learn more about our multi-channel contact centre with our new extensible user interface and secure payment solutions.
 
-#### Intelecom Group
-[Intelecom Group AS](http://www.intelecom.no) was started in Norway in 1998 and has its roots in older companies such as Alcatel and Nexans. In 2010 Intelecom merged with Carrot Communications and was acquired by Herkules Capital. The main office is located in Oslo, with branch offices in many other Norwegian cities, as well as Sweden, Denmark, Bulgaria and the UK. 
+Puzzel employs over 130 people who are all passionate about delivering innovative customer interaction solutions for contact centres and mobile environments.
 
+##### Puzzel’s Heritage
+
+Puzzel is an enigma – it is a new and vibrant company with over 20 years’ heritage of delivering communication solutions that take customer interaction to another level.
+
+Puzzel was created out of Intelecom Group to further focus on developing it’s contact centre and payment solutions where the company has taken a substantial position in the fast-growing market for cloud-based Customer Engagement Solutions. These solutions are used by a range of customers in different geographies, verticals and usage areas.
+
+Puzzel’s focus is to develop and deliver inventive technology that is empowering our customers by being feature rich and easy to use, being able to adapt to any environment through strong integration capabilities, and always being dependable by offering consistently high levels of stability and security.
