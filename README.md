@@ -38,6 +38,3 @@ We provide innovative solutions for SMS, mobile applications, system integration
 #### Intelecom Group
 [Intelecom Group AS](http://www.intelecom.no) was started in Norway in 1998 and has its roots in older companies such as Alcatel and Nexans. In 2010 Intelecom merged with Carrot Communications and was acquired by Herkules Capital. The main office is located in Oslo, with branch offices in many other Norwegian cities, as well as Sweden, Denmark, Bulgaria and the UK. 
 
-
-#### Herkules Capital
-Since 2010, Intelecom Group and its subsidiaries have been fully owned by [Herkules Capital](http://www.herkulescapital.no/), the leading Norwegian private equity firm which supports established companies located in the Nordic region with strong growth potential.
