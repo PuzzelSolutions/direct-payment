@@ -1,5 +1,14 @@
 # API Methods and Types
 
+##Table of contents
+1. [Pay](#pay)
+2. [Reverse payment](#reverse-payment)
+3. [Get payment status](#get-payment-status)
+4. [Send verification code](#send-verification-code)
+5. [Verify verification code](#verify-verification-code)
+6. [PreAuthorize](#preauthorize)
+7. [Direct Payment Fault](#directpaymentfault)
+
 ## Pay
 
 Use the Pay method to directly charge a mobile subscription with a provided amount. It is also mandatory to specify a [service code](service-codes.md) for a transaction that describes the category and in turn will effect the payout. The mobile subscription is charged immediately and you will get a synchronous response from the API. It is not necessary for the mobile phone to be turned on in order for the transaction to go through.
@@ -21,7 +30,7 @@ The REST interface gets the ServiceId from the request URL and Username/Password
 </table>
 
 #### ServiceCredentials
-This type is only relevant when using the SOAP endpoint. 
+This type is only relevant when using the SOAP endpoint.
 
 <table>
 <tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
@@ -141,7 +150,41 @@ Use this method to verify that the pin code entered by the end-user matches the 
 <tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
 <tr><td>ServiceCredentials</td><td>ServiceCredentials</td><td>See <a href="methods.md#servicecredentials">here</a> for details</td><td>Yes</td></tr>
 <tr><td>Msisdn</td><td>String</td><td>The mobile subscription number associated with the verification code.</td><td>Yes</td></tr>
-<tr><td>VerificationCode</td><td>string</td><td>The code to be verified.</td><td>Yes</td></tr>
+<tr><td>VerificationCode</td><td>String</td><td>The code to be verified.</td><td>Yes</td></tr>
+</table>
+
+### Response types
+N/A.
+
+
+## PreAuthorize
+
+PreAuthorized payments are recurring payments where the End User have confirmed that the Pay transaction for a merchant can be executed without End User confirmation on each transaction.
+
+This method returns a token to be used in subsequent Pay requests. The token is issued by Strex and does not expire. However it can be manually invalidated by Strex in some situations if the Code of Conduct is violated.
+
+Please note that the End User needs to be a user on the Strex platform for this to be successful.
+
+NB This method is only available on the REST API
+
+
+### Request types
+<table>
+<tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
+<tr><td>ServiceCredentials</td><td>ServiceCredentials</td><td>See <a href="methods.md#servicecredentials">here</a> for details</td><td>Yes</td></tr>
+<tr><td>Msisdn</td><td>String</td><td>The mobile subscription to generate a token for.</td><td>Yes</td></tr>
+<tr><td>TransactionId</td><td>String</td><td>Your identifier for the request - is returned in the response.</td><td>Yes</td></tr>
+<tr><td>Platform</td><td>Enum</td><td>Which Puzzel platform to validate ServiceCredentials against<br><br>
+0 = DirectPay <br>
+1 = Sms</td><td>Yes</td></tr>
+<tr><td>SecurityLevel</td><td>Enum</td><td>Which security level the authorization request should use.<br><br>
+1 = None <br>
+2 = Confirmation<br>
+3 = Pin (not in use)</td><td>Yes</td></tr>
+<tr><td>ConfirmationChannel</td><td>Enum</td><td>If security level is set to 'Confirmation', you can specify which channel the confirmation message should use.<br><br>
+1 = USSD <br>
+2 = SMS</td><td>No</td></tr>
+<tr><td>ShortNumber</td><td>String</td><td>If ConfirmationChannel is set to 'SMS', you can specify the originator prefix of the sms message here. Default is '2222' from Strex.</td><td>Yes</td></tr>
 </table>
 
 ### Response types
