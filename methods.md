@@ -188,7 +188,12 @@ NB This method is only available on the REST API
 </table>
 
 ### Response types
-N/A.
+<table>
+<tr><th>Name</th><th>Data Type</th><th>Description</th></tr>
+<tr><td>ExternalTransactionReference</td><td>String</td><td>A unique transaction reference from Strex.</td></tr>
+<tr><td>Token</td><td>String</td><td>The token to be used with subscription sell requests.</td></tr>
+<tr><td>TransactionId</td><td>String</td><td>Your inputted identifier for the request.</td></tr>
+</table>
 
 
 ## DirectPaymentFault
