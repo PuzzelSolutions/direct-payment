@@ -42,16 +42,25 @@ This type is only relevant when using the SOAP endpoint.
 
 #### PaymentDetails
 <table>
-<tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
-<tr><td>Msisdn</td><td>String</td><td>The MSISDN that should be charged. The format should follow the ITU-T E.164 standard with a + prefix.</td><td>Yes</td></tr>
-<tr><td>Price</td><td>Integer</td><td>The amount that should be debited, in lowest monetary unit. Example: 100 (1,- NOK).</td><td>Yes</td></tr>
-<tr><td>ServiceCode</td><td>String</td><td>Service code identifying the type of transaction. See <a href="service-codes.md">here</a> for a list of available service codes</td><td>Yes</td></tr>
-<tr><td>ClientReference</td><td>String</td><td>Client reference for the transaction, must be unique.</td><td>Yes</td></tr>
-<tr><td>EndUserInvoiceText</td><td>String</td><td>Text that will be displayed on the end-user invoice.</td><td>No</td></tr>
-<tr><td>Age</td><td>Integer</td><td>The minimum age of the subscriber required for the purchase. If set, the valid values are 16 and 18.</td><td>No</td></tr>
-<tr><td>Differentiator</td><td>String</td><td>Arbitrary string set by the client to enable grouping of messages in certain statistics reports.</td><td>No</td></tr>
-<tr><td>InvoiceNode</td><td>String</td><td>Arbitrary string set by the client to enable grouping of messages on the service invoice.</td><td>No</td></tr>
-<tr><td>BusinessModel</td><td>String</td><td>Business model, a list containing the available business models is available <a href="business-models.md">here</a>.</td><td>No</td></tr>
+<tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th><th>Version</th></tr>
+<tr><td>Msisdn</td><td>String</td><td>The MSISDN that should be charged. The format should follow the ITU-T E.164 standard with a + prefix.</td><td>Yes</td><td>1, 2</td></tr>
+<tr><td>Price</td><td>Integer</td><td>The amount that should be debited, in lowest monetary unit. Example: 100 (1,- NOK).</td><td>Yes</td><td>1, 2</td></tr>
+<tr><td>ServiceCode</td><td>String</td><td>Service code identifying the type of transaction. See <a href="service-codes.md">here</a> for a list of available service codes</td><td>Yes</td><td>1, 2</td></tr>
+<tr><td>ClientReference</td><td>String</td><td>Client reference for the transaction, must be unique.</td><td>Yes</td><td>1, 2</td></tr>
+<tr><td>EndUserInvoiceText</td><td>String</td><td>Text that will be displayed on the end-user invoice.</td><td>No</td><td>1, 2</td></tr>
+<tr><td>Age</td><td>Integer</td><td>The minimum age of the subscriber required for the purchase. If set, the valid values are 16 and 18.</td><td>No</td><td>1, 2</td></tr>
+<tr><td>Differentiator</td><td>String</td><td>Arbitrary string set by the client to enable grouping of messages in certain statistics reports.</td><td>No</td><td>1, 2</td></tr>
+<tr><td>InvoiceNode</td><td>String</td><td>Arbitrary string set by the client to enable grouping of messages on the service invoice.</td><td>No</td><td>1, 2</td></tr>
+<tr><td>BusinessModel</td><td>String</td><td>Business model, a list containing the available business models is available <a href="business-models.md">here</a>.</td><td>No</td><td>1, 2</td></tr>
+<tr><td>AuthorizationToken</td><td>String</td><td>If the user has preauthorized the transaction, you can input the preauth token here. See [here](methods.md#preauthorize) for details.</td><td>No</td><td>2</td></tr>
+<tr><td>SecurityLevel</td><td>Enum</td><td>Which security level the authorization request should use.<br><br>
+1 = None <br>
+2 = Confirmation<br>
+3 = Pin (not in use)</td><td>Yes</td><td>2</td></tr>
+<tr><td>ConfirmationChannel</td><td>Enum</td><td>If security level is set to 'Confirmation', you can specify which channel the confirmation message should use.<br><br>
+1 = USSD <br>
+2 = SMS</td><td>No</td><td>2</td></tr>
+<tr><td>VerificationTimeout</td><td>Integer</td><td>How long time (in minutes) the user has to confirm the transaction. 30 is maximum.</td><td>No</td><td>2</td></tr>
 </table>
 
 
