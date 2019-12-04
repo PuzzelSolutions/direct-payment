@@ -1,5 +1,14 @@
 # API Methods and Types
 
+##Table of contents
+1. [Pay](#pay)
+2. [Reverse payment](#reverse-payment)
+3. [Get payment status](#get-payment-status)
+4. [Send verification code](#send-verification-code)
+5. [Verify verification code](#verify-verification-code)
+6. [PreAuthorize](#preauthorize)
+7. [Direct Payment Fault](#directpaymentfault)
+
 ## Pay
 
 Use the Pay method to directly charge a mobile subscription with a provided amount. It is also mandatory to specify a [service code](service-codes.md) for a transaction that describes the category and in turn will effect the payout. The mobile subscription is charged immediately and you will get a synchronous response from the API. It is not necessary for the mobile phone to be turned on in order for the transaction to go through.
@@ -21,7 +30,7 @@ The REST interface gets the ServiceId from the request URL and Username/Password
 </table>
 
 #### ServiceCredentials
-This type is only relevant when using the SOAP endpoint. 
+This type is only relevant when using the SOAP endpoint.
 
 <table>
 <tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
@@ -33,16 +42,25 @@ This type is only relevant when using the SOAP endpoint.
 
 #### PaymentDetails
 <table>
-<tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
-<tr><td>Msisdn</td><td>String</td><td>The MSISDN that should be charged. The format should follow the ITU-T E.164 standard with a + prefix.</td><td>Yes</td></tr>
-<tr><td>Price</td><td>Integer</td><td>The amount that should be debited, in lowest monetary unit. Example: 100 (1,- NOK).</td><td>Yes</td></tr>
-<tr><td>ServiceCode</td><td>String</td><td>Service code identifying the type of transaction. See <a href="service-codes.md">here</a> for a list of available service codes</td><td>Yes</td></tr>
-<tr><td>ClientReference</td><td>String</td><td>Client reference for the transaction, must be unique.</td><td>Yes</td></tr>
-<tr><td>EndUserInvoiceText</td><td>String</td><td>Text that will be displayed on the end-user invoice.</td><td>No</td></tr>
-<tr><td>Age</td><td>Integer</td><td>The minimum age of the subscriber required for the purchase. If set, the valid values are 16 and 18.</td><td>No</td></tr>
-<tr><td>Differentiator</td><td>String</td><td>Arbitrary string set by the client to enable grouping of messages in certain statistics reports.</td><td>No</td></tr>
-<tr><td>InvoiceNode</td><td>String</td><td>Arbitrary string set by the client to enable grouping of messages on the service invoice.</td><td>No</td></tr>
-<tr><td>BusinessModel</td><td>String</td><td>Business model, a list containing the available business models is available <a href="business-models.md">here</a>.</td><td>No</td></tr>
+<tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th><th>Version</th></tr>
+<tr><td>Msisdn</td><td>String</td><td>The MSISDN that should be charged. The format should follow the ITU-T E.164 standard with a + prefix.</td><td>Yes</td><td>1, 2</td></tr>
+<tr><td>Price</td><td>Integer</td><td>The amount that should be debited, in lowest monetary unit. Example: 100 (1,- NOK).</td><td>Yes</td><td>1, 2</td></tr>
+<tr><td>ServiceCode</td><td>String</td><td>Service code identifying the type of transaction. See <a href="service-codes.md">here</a> for a list of available service codes</td><td>Yes</td><td>1, 2</td></tr>
+<tr><td>ClientReference</td><td>String</td><td>Client reference for the transaction, must be unique.</td><td>Yes</td><td>1, 2</td></tr>
+<tr><td>EndUserInvoiceText</td><td>String</td><td>Text that will be displayed on the end-user invoice.</td><td>No</td><td>1, 2</td></tr>
+<tr><td>Age</td><td>Integer</td><td>The minimum age of the subscriber required for the purchase. If set, the valid values are 16 and 18.</td><td>No</td><td>1, 2</td></tr>
+<tr><td>Differentiator</td><td>String</td><td>Arbitrary string set by the client to enable grouping of messages in certain statistics reports.</td><td>No</td><td>1, 2</td></tr>
+<tr><td>InvoiceNode</td><td>String</td><td>Arbitrary string set by the client to enable grouping of messages on the service invoice.</td><td>No</td><td>1, 2</td></tr>
+<tr><td>BusinessModel</td><td>String</td><td>Business model, a list containing the available business models is available <a href="business-models.md">here</a>.</td><td>No</td><td>1, 2</td></tr>
+<tr><td>AuthorizationToken</td><td>String</td><td>If the user has preauthorized the transaction, you can input the preauth token here. See [here](methods.md#preauthorize) for details.</td><td>No</td><td>2</td></tr>
+<tr><td>SecurityLevel</td><td>Enum</td><td>Which security level the authorization request should use.<br><br>
+1 = None <br>
+2 = Confirmation<br>
+3 = Pin (not in use)</td><td>Yes</td><td>2</td></tr>
+<tr><td>ConfirmationChannel</td><td>Enum</td><td>If security level is set to 'Confirmation', you can specify which channel the confirmation message should use.<br><br>
+1 = USSD <br>
+2 = SMS</td><td>No</td><td>2</td></tr>
+<tr><td>VerificationTimeout</td><td>Integer</td><td>How long time (in minutes) the user has to confirm the transaction. 30 is maximum.</td><td>No</td><td>2</td></tr>
 </table>
 
 
@@ -141,11 +159,60 @@ Use this method to verify that the pin code entered by the end-user matches the 
 <tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
 <tr><td>ServiceCredentials</td><td>ServiceCredentials</td><td>See <a href="methods.md#servicecredentials">here</a> for details</td><td>Yes</td></tr>
 <tr><td>Msisdn</td><td>String</td><td>The mobile subscription number associated with the verification code.</td><td>Yes</td></tr>
-<tr><td>VerificationCode</td><td>string</td><td>The code to be verified.</td><td>Yes</td></tr>
+<tr><td>VerificationCode</td><td>String</td><td>The code to be verified.</td><td>Yes</td></tr>
 </table>
 
 ### Response types
 N/A.
+
+
+## PreAuthorize
+
+PreAuthorized payments are recurring payments where the End User have confirmed that the payment transactions (including premium SMS transactions) for a merchant can be executed without End User confirmation on each transaction.
+
+This method returns a token to be used in subsequent Pay requests or Premium SMS requests. The token is issued by Strex and does not expire. However it can be manually invalidated by Strex in some situations if the Code of Conduct is violated.
+
+Please note that the End User needs to be a user on the Strex platform for this to be successful.
+
+NB This method is only available on the REST interface and it allows you to use the serviceId, username and password from either the SMS platform or Direct Pay platform. See the <a href="rest-interface.md">REST interface</a> for details regarding authentication.
+
+
+### URI variables
+<table>
+<tr><th>Name</th><th>Data Type</th><th>Description</th></tr>
+<tr><td>serviceId</td><td>String</td><td>The mobile subscription to generate a token for.</td></tr>
+<tr><td>platform</td><td>Enum</td><td>Which platform the serviceId belongs to<br>
+Accepts either int or string values:
+0 = directpay <br>
+1 = sms<br></td></tr>
+</table>
+
+
+### Request types
+<table>
+<tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
+<tr><td>Msisdn</td><td>String</td><td>The mobile subscription to generate a token for.</td><td>Yes</td></tr>
+<tr><td>TransactionId</td><td>String</td><td>Your identifier for the request - is returned in the response.</td><td>Yes</td></tr>
+<tr><td>Platform</td><td>Enum</td><td>Which Puzzel platform to validate ServiceCredentials against<br><br>
+0 = DirectPay <br>
+1 = Sms</td><td>Yes</td></tr>
+<tr><td>SecurityLevel</td><td>Enum</td><td>Which security level the authorization request should use.<br><br>
+1 = None <br>
+2 = Confirmation<br>
+3 = Pin (not in use)</td><td>Yes</td></tr>
+<tr><td>ConfirmationChannel</td><td>Enum</td><td>If security level is set to 'Confirmation', you can specify which channel the confirmation message should use.<br><br>
+1 = USSD <br>
+2 = SMS</td><td>No</td></tr>
+<tr><td>ShortNumber</td><td>String</td><td>If ConfirmationChannel is set to 'SMS', you can specify the originator prefix of the sms message here. Default is '2222' from Strex. Note that Strex adds a 10 digit suffix, so you should only use 4 digit short codes here.</td><td>No</td></tr>
+</table>
+
+### Response types
+<table>
+<tr><th>Name</th><th>Data Type</th><th>Description</th></tr>
+<tr><td>ExternalTransactionReference</td><td>String</td><td>A unique transaction reference from Strex.</td></tr>
+<tr><td>Token</td><td>String</td><td>The token to be used with subscription sell requests.</td></tr>
+<tr><td>TransactionId</td><td>String</td><td>Your inputted identifier for the request.</td></tr>
+</table>
 
 
 ## DirectPaymentFault
