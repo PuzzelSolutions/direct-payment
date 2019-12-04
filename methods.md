@@ -168,19 +168,29 @@ N/A.
 
 ## PreAuthorize
 
-PreAuthorized payments are recurring payments where the End User have confirmed that the Pay transaction for a merchant can be executed without End User confirmation on each transaction.
+PreAuthorized payments are recurring payments where the End User have confirmed that the payment transactions (including premium SMS transactions) for a merchant can be executed without End User confirmation on each transaction.
 
-This method returns a token to be used in subsequent Pay requests. The token is issued by Strex and does not expire. However it can be manually invalidated by Strex in some situations if the Code of Conduct is violated.
+This method returns a token to be used in subsequent Pay requests or Premium SMS requests. The token is issued by Strex and does not expire. However it can be manually invalidated by Strex in some situations if the Code of Conduct is violated.
 
 Please note that the End User needs to be a user on the Strex platform for this to be successful.
 
-NB This method is only available on the REST API
+NB This method is only available on the REST interface and it allows you to use the serviceId, username and password from either the SMS platform or Direct Pay platform. See the <a href="rest-interface.md">REST interface</a> for details regarding authentication.
+
+
+### URI variables
+<table>
+<tr><th>Name</th><th>Data Type</th><th>Description</th></tr>
+<tr><td>serviceId</td><td>String</td><td>The mobile subscription to generate a token for.</td></tr>
+<tr><td>platform</td><td>Enum</td><td>Which platform the serviceId belongs to<br>
+Accepts either int or string values:
+0 = directpay <br>
+1 = sms<br></td></tr>
+</table>
 
 
 ### Request types
 <table>
 <tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
-<tr><td>ServiceCredentials</td><td>ServiceCredentials</td><td>See <a href="methods.md#servicecredentials">here</a> for details</td><td>Yes</td></tr>
 <tr><td>Msisdn</td><td>String</td><td>The mobile subscription to generate a token for.</td><td>Yes</td></tr>
 <tr><td>TransactionId</td><td>String</td><td>Your identifier for the request - is returned in the response.</td><td>Yes</td></tr>
 <tr><td>Platform</td><td>Enum</td><td>Which Puzzel platform to validate ServiceCredentials against<br><br>
@@ -193,7 +203,7 @@ NB This method is only available on the REST API
 <tr><td>ConfirmationChannel</td><td>Enum</td><td>If security level is set to 'Confirmation', you can specify which channel the confirmation message should use.<br><br>
 1 = USSD <br>
 2 = SMS</td><td>No</td></tr>
-<tr><td>ShortNumber</td><td>String</td><td>If ConfirmationChannel is set to 'SMS', you can specify the originator prefix of the sms message here. Default is '2222' from Strex.</td><td>Yes</td></tr>
+<tr><td>ShortNumber</td><td>String</td><td>If ConfirmationChannel is set to 'SMS', you can specify the originator prefix of the sms message here. Default is '2222' from Strex. Note that Strex adds a 10 digit suffix, so you should only use 4 digit short codes here.</td><td>No</td></tr>
 </table>
 
 ### Response types
