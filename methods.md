@@ -55,12 +55,11 @@ This type is only relevant when using the SOAP endpoint.
 <tr><td>AuthorizationToken</td><td>String</td><td>If the user has preauthorized the transaction, you can input the preauth token here. See [here](methods.md#preauthorize) for details.</td><td>No</td><td>2</td></tr>
 <tr><td>SecurityLevel</td><td>Enum</td><td>Which security level the authorization request should use.<br><br>
 1 = None <br>
-2 = Confirmation<br>
+2 = Confirmation (End user will have 1 minute to confirm the transaction)<br>
 3 = Pin (not in use)</td><td>Yes</td><td>2</td></tr>
 <tr><td>ConfirmationChannel</td><td>Enum</td><td>If security level is set to 'Confirmation', you can specify which channel the confirmation message should use.<br><br>
 1 = USSD <br>
 2 = SMS</td><td>No</td><td>2</td></tr>
-<tr><td>VerificationTimeout</td><td>Integer</td><td>How long time (in minutes) the user has to confirm the transaction. 30 is maximum.</td><td>No</td><td>2</td></tr>
 </table>
 
 
