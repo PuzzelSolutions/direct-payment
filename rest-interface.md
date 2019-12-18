@@ -4,10 +4,10 @@
 
 ### How to connect
 
-The REST interface supports both JSON and XML over HTTP with the following base URI: `https://directpayment.intele.com/restV1.svc`.
+The REST interface supports both JSON and XML over HTTP with the following base URI: `https://directpayment.puzzel.com/restV1.svc`.
 
 
-Swagger UI, which displays example requests/responses, is available [here](https://directpayment.intele.com/api-docs/index.html?url=/api-docs/swagger.json).
+Swagger UI, which displays example requests/responses, is available [here](https://directpayment.puzzel.com/api-docs/index.html?url=/api-docs/swagger.json).
 
 
 ### Authentication
