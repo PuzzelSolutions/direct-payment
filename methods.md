@@ -203,6 +203,8 @@ Accepts either int or string values:
 1 = USSD <br>
 2 = SMS</td><td>No</td></tr>
 <tr><td>ShortNumber</td><td>String</td><td>If ConfirmationChannel is set to 'SMS', you can specify the originator prefix of the sms message here. Default is '2222' from Strex. Note that Strex adds a 10 digit suffix, so you should only use 4 digit short codes here.</td><td>No</td></tr>
+<tr><td>MessagePrefix</td><td>String</td><td>If ConfirmationChannel is set to 'SMS', you can specify a custom text that will be preceding the standard text provided by Strex.</td><td>No</td></tr>
+<tr><td>MessageSuffix</td><td>String</td><td>If ConfirmationChannel is set to 'SMS', you can specify a custom text that will be proceeding the standard text provided by Strex.</td><td>No</td></tr>
 </table>
 
 ### Response types
