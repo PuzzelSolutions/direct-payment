@@ -34,9 +34,9 @@ This type is only relevant when using the SOAP endpoint.
 
 <table>
 <tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
-<tr><td>ServiceId</td><td>Integer</td><td>Service ID, provided by Intelecom service desk.</td><td>Yes</td></tr>
-<tr><td>Username</td><td>String</td><td>Username, provided by Intelecom service desk.</td><td>Yes</td></tr>
-<tr><td>Password</td><td>String</td><td>Password, provided by Intelecom service desk.</td><td>Yes</td></tr>
+<tr><td>ServiceId</td><td>Integer</td><td>Service ID, provided by Puzzel service desk.</td><td>Yes</td></tr>
+<tr><td>Username</td><td>String</td><td>Username, provided by Puzzel service desk.</td><td>Yes</td></tr>
+<tr><td>Password</td><td>String</td><td>Password, provided by Puzzel service desk.</td><td>Yes</td></tr>
 </table>
 
 
