@@ -205,6 +205,9 @@ Accepts either int or string values:
 <tr><td>ShortNumber</td><td>String</td><td>If ConfirmationChannel is set to 'SMS', you can specify the originator prefix of the sms message here. Default is '2222' from Strex. Note that Strex adds a 10 digit suffix, so you should only use 4 digit short codes here.</td><td>No</td></tr>
 <tr><td>MessagePrefix</td><td>String</td><td>If ConfirmationChannel is set to 'SMS', you can specify a custom text that will be preceding the standard text provided by Strex.</td><td>No</td></tr>
 <tr><td>MessageSuffix</td><td>String</td><td>If ConfirmationChannel is set to 'SMS', you can specify a custom text that will be proceeding the standard text provided by Strex.</td><td>No</td></tr>
+<tr><td>TokenDescription</td><td>String</td><td>Information what the token is used for. This description is shown on Strex "Min side" and should describe the subscription service.</td><td>No</td></tr>
+<tr><td>Age</td><td>String</td><td>The minimum age of the End User required for this request.
+If not set or present in the request, there is no age limit.</td><td>No</td></tr>
 </table>
 
 ### Response types
