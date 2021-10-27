@@ -14,4 +14,5 @@
 <tr><td>10</td><td>424</td><td>Expired</td></tr>
 <tr><td>11</td><td>424</td><td>Mno error</td></tr>
 <tr><td>12</td><td>424</td><td>User Mno error</td></tr>
+<tr><td>13</td><td>400</td><td>Invalid msisdn</td></tr>
 </table>
