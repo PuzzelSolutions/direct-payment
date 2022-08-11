@@ -316,8 +316,11 @@ Query parameters
 <tr><td>Age</td><td>Integer</td><td>Optional. If provided, age of the subscriber is checked to be above the input age.</td></tr>
 </table>
 
-#### Response object
-If all 3 DirectPaymentFault values are null, the 3 requests have been successful and you should proceed with checking the values of the ResponseV1 and ResponseV3 objects.
+#### Response
+
+HTTP status code 200 indicates that successfull requests have been made and you will get a response object as defined below.
+All other HTTP status codes indicates error, and HTTP status code 424 will return a DirectPaymentFault object.
+
 <table>
 <tr><th>Name</th><th>Data Type</th><th>Description</th></tr>
 <tr><td>ResponseV1</td><td>Complex type</td><td>Returns the response object as defined in "Get user information" method</td></tr>
