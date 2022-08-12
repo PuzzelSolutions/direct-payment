@@ -293,8 +293,7 @@ HTTP GET {host}/RestV1.svc/service/{serviceId}/msisdn/{msisdn}/userinfoV3
 </td></tr>
 <tr><td>MaxAmountPrTransaction</td><td>Integer</td><td>Maximum amount (in øre) which can be charged in a single sell transaction.</td></tr>
 <tr><td>RemainingMonthlyAmount</td><td>Integer</td><td>Remaining monthly amount (in øre) which can be charge for the subscriber before exceeding the monthly limit.<br><br>
-0 = limit already reached<br>
--1 = no limit applicable, subscriber valid for purchase above defined monthly limit.</td></tr>
+0 = limit already reached<br></td></tr>
 <tr><td>RemainingYearlyAmount</td><td>Integer</td><td>Remaining yearly amount (in øre) which can be charge for the subscriber before exceeding the yearly limit.<br><br>
 0 = limit already reached<br>
 -1 = no limit applicable, subscriber valid for purchase above defined yearly limit.<br></td></tr>
