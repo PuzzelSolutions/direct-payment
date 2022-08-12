@@ -7,7 +7,12 @@
 4. [Send verification code](#send-verification-code)
 5. [Verify verification code](#verify-verification-code)
 6. [PreAuthorize](#preauthorize)
-7. [Direct Payment Fault](#directpaymentfault)
+7. [Get user information](#get-user-information)
+	1. [Get user information v1](#get-user-information-v1)
+	2. 	[Get user information v2](#get-user-information-v2)
+	3. 	[Get user information v3](#get-user-information-v3)
+	4. 	[Get user information summary](#get-user-information-summary)
+8. [Direct Payment Fault](#directpaymentfault)
 
 ## Pay
 
@@ -216,6 +221,114 @@ If not set or present in the request, there is no age limit.</td><td>No</td></tr
 <tr><td>ExternalTransactionReference</td><td>String</td><td>A unique transaction reference from Strex.</td></tr>
 <tr><td>Token</td><td>String</td><td>The token to be used with subscription sell requests.</td></tr>
 <tr><td>TransactionId</td><td>String</td><td>Your inputted identifier for the request.</td></tr>
+</table>
+
+
+## Get user information
+These methods returns various information from Strex regarding the End user and the subscription. 
+
+**Note** these methods are only available on the REST endpoint.
+
+### Get user information v1
+Returns information about an end user's registration status on the Strex Payment Service.
+
+#### Request
+HTTP GET {host}/RestV1.svc/service/{serviceId}/msisdn/{msisdn}
+
+#### Response object
+<table>
+<tr><th>Name</th><th>Data Type</th><th>Description</th></tr>
+<tr><td>Msisdn</td><td>String</td><td>User's msisdn</td></tr>
+<tr><td>Validity</td><td>Enum</td><td>
+0 = Not registered<br>
+1 = Registered, but not valid for licensed purchase<br>
+2 = Valid for licensed purchase<br>
+3 = MNO billing barred<br>
+4 = Verified user with BankID and valid for licensed purchase<br>
+</td></tr>
+<tr><td>TerminalType</td><td>String</td><td>Handset model.</td></tr>
+</table>
+
+### Get user information v2
+Runs an extensive "sell validation check" and provides an **indicative** response on whether the subscriber can be charged with the given input parameters.
+
+#### Request
+HTTP GET {host}/RestV1.svc/service/{serviceId}/msisdn/{msisdn}/userinfoV2
+
+Query parameters
+<table>
+<tr><th>Name</th><th>Data Type</th><th>Description</th></tr>
+<tr>
+  <td>amount</td>
+  <td>String</td>
+  <td>Amount you plan to charge the subscriber. Given in Norwegian øre (ie 2500 = 25 NOK)
+  </td>
+</tr>
+<tr><td>serviceCode</td><td>String</td><td>Strex service code you plan to use when charging the subscriber.</td></tr>
+<tr><td>age</td><td>Integer</td><td>Optional. If provided, age of the subscriber is checked to be above the input age.</td></tr>
+</table>
+
+#### Response
+Returns HTTP 200 if okay with an empty body.
+
+### Get user information v3
+Retrieves the current Strex transaction limits for an end user. The response is **indicative**. Only Strex limits is returned, MNO status is not checked (e.g. prepaid balance, payment card balance, cpa blocks, etc).
+
+#### Request
+HTTP GET {host}/RestV1.svc/service/{serviceId}/msisdn/{msisdn}/userinfoV3
+
+#### Response object
+<table>
+<tr><th>Name</th><th>Data Type</th><th>Description</th></tr>
+<tr><td>PreferredSourceOfFunds</td><td>Enum</td><td>
+-1 = Unknown<br>
+1 = MNO<br>
+2 = Not in use<br>
+3 = Payment card<br>
+</td></tr>
+<tr><td>SubscriptionType</td><td>Enum</td><td>
+-1 = Unknown<br>
+0 = Postpaid<br>
+1 = Prepaid<br>
+</td></tr>
+<tr><td>MaxAmountPrTransaction</td><td>Integer</td><td>Maximum amount (in øre) which can be charged in a single sell transaction.</td></tr>
+<tr><td>RemainingMonthlyAmount</td><td>Integer</td><td>Remaining monthly amount (in øre) which can be charge for the subscriber before exceeding the monthly limit.<br><br>
+0 = limit already reached<br>
+-1 = no limit applicable, subscriber valid for purchase above defined monthly limit.</td></tr>
+<tr><td>RemainingYearlyAmount</td><td>Integer</td><td>Remaining yearly amount (in øre) which can be charge for the subscriber before exceeding the yearly limit.<br><br>
+0 = limit already reached<br>
+-1 = no limit applicable, subscriber valid for purchase above defined yearly limit.<br></td></tr>
+</table>
+
+### Get user information summary
+Combines all the 3 "get user information" checks into one request and returns with 3 responses. 
+
+It is also possible to run a real Sell request of 2 NOK which automatically will be reversed through this request. This feature must be enabled by Puzzel personnel on the service. Note that such transactions will be visible on the end users invoice.
+
+#### Request
+HTTP GET {host}/RestV1.svc/service/{serviceId}/msisdn/{msisdn}/userinfoSummary
+
+Query parameters
+<table>
+<tr><th>Name</th><th>Data Type</th><th>Description</th></tr>
+<tr><td>amount</td><td>String</td><td>Amount you plan to charge the subscriber. Given in Norwegian øre (ie 2500 = 25 NOK)</td></tr>
+<tr><td>serviceCode</td><td>String</td><td>Strex service code you plan to use when charging the subscriber.</td></tr>
+<tr><td>Age</td><td>Integer</td><td>Optional. If provided, age of the subscriber is checked to be above the input age.</td></tr>
+</table>
+
+#### Response
+
+HTTP status code 200 indicates that successfull requests have been made and you will get a response object as defined below.
+All other HTTP status codes indicates error, and HTTP status code 424 will return a DirectPaymentFault object.
+
+<table>
+<tr><th>Name</th><th>Data Type</th><th>Description</th></tr>
+<tr><td>ResponseV1</td><td>Complex type</td><td>Returns the response object as defined in "Get user information" method</td></tr>
+<tr><td>ResponseV1Fault</td><td>DirectPaymentFault</td><td>Returns any error codes from Strex on the "Get user information" request.</td></tr>
+<tr><td>ResponseV2</td><td>Enum</td><td>An empty object (meaning success)</td></tr>
+<tr><td>ResponseV2Fault</td><td>DirectPaymentFault</td><td>Returns any error codes from Strex on the "Get user information v2" request.</td></tr>
+<tr><td>ResponseV3</td><td>Enum</td><td>Returns the response object as defined in "Get user information" method</td></tr>
+<tr><td>ResponseV3Fault</td><td>DirectPaymentFault</td><td>Returns any error codes from Strex on the "Get user information v3" request.</td></tr>
 </table>
 
 
