@@ -65,8 +65,17 @@ This type is only relevant when using the SOAP endpoint.
 <tr><td>ConfirmationChannel</td><td>Enum</td><td>If security level is set to 'Confirmation', you can specify which channel the confirmation message should use.<br><br>
 1 = USSD <br>
 2 = SMS</td><td>No</td><td>2</td></tr>
+<tr><td>TeletorgSettings</td><td>TeletorgSettings</td><td>Parameters used for Teletorg (Premium voice services). See fields below.</td><td>No</td><td>2</td></tr>
 </table>
 
+#### TeletorgSettings
+<table>
+<tr><th>Name</th><th>Data Type</th><th>Description</th><th>Mandatory</th></tr>
+<tr><td>Bnumber</td><td>String</td><td>The called number</td><td>No</td></tr>
+<tr><td>StartTime</td><td>DateTime</td><td>Start time of the charged voice call. Format: YYYY-MM-DD HH:MM:SS</td><td>No</td></tr>
+<tr><td>StartPrice</td><td>Integer</td><td>Start price for the charged voice call. Should be in lowest monetary unit. Example: 100 (1,- NOK)</td><td>No</td></tr>
+<tr><td>Duration</td><td>Integer</td><td>Charged voice call duation in seconds</td><td>No</td></tr>
+</table>
 
 ### Response types
 
